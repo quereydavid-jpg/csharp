@@ -1,0 +1,45 @@
+﻿@model List<Movimiento>
+@{
+	ViewData["Title"] = "Movimientos";
+	int ingresos = Model.Where(m => m.Tipo == TipoMovimiento.Ingreso).Sum(m => m.Monto);
+	int egresos = Model.Where(m => m.Tipo == TipoMovimiento.Egreso).Sum(m => m.Monto);
+}
+
+<h1>Movimientos</h1>
+
+<p>
+	<a asp-action="Create" class="btn btn-primary">Nuevo movimiento</a>
+</p>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Tipo</th>
+			<th>Descripcion</th>
+			<th>Monto</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (Movimiento m in Model)
+		{
+			<tr>
+				<td>@m.Id</td>
+				<td>@m.Tipo</td>
+				<td>@m.Descripcion</td>
+				<td>@m.Monto.ToString("N0") Gs</td>
+				<td>
+					<a asp-action="Edit" asp-route-id="@m.Id">Editar</a>
+					<a asp-action="Delet" asp-route-id="@m.Id">Eliminar</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+<p>
+	Ingresos: <strong>@ingresos.ToString("N0") Gs</strong>
+	Egresos: <strong>@egresos.ToString("N0") Gs</strong>
+	Saldo: <strong>@((ingresos - egresos).ToString("N0")) Gs)</strong>
+</p>
