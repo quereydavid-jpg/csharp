@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chat del aula</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 24px auto;
+            padding: 0 12px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 6px;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 6px 14px;
+            cursor: pointer;
+        }
+
+        .mensaje {
+            border-bottom: 1px solid #cccccc;
+            padding: 10px 0;
+        }
+
+            .mensaje p {
+                margin: 4px 0;
+            }
+
+        #aviso {
+            color: #b00020;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Chat del aula</h1>
+    <form id="formulario">
+        <label for="usuario">Tu nombre</label>
+        <input id="usuario" maxlength="30" required>
+
+        <label for="texto">Tu mensaje</label>
+        <textarea id="texto" rows="2" maxlength="280" required></textarea>
+
+        <button type="submit">Enviar</button>
+        <button type="button" id="actualizar">Actualizar</button>
+    </form>
+    <p id="aviso"></p>
+    <div id="lista"></div>
+
+    <script>
+        const lista = document.getElementById("lista");
+        const aviso = document.getElementById("aviso");
+        
+        async function cargar() {
+            try {
+                const respuesta = await fetch("/api/mensajes");
+                if (!respuesta.ok) throw new Error("error " + respuesta.status);
+                const mensajes = await respuesta.json();
+
+                lista.innerHTML = "";
+                for (const m of mensajes) {
+                    const caja = document.createElement("div");
+                    caja.className = "mensaje";
+
+                    const autor = document.createElement("strong");
+                    autor.textContent = m.usuario;
+
+                    const texto = document.createElement("p");
+                    texto.textContent = m.texto;
+
+                    const boton = document.createElement("button");
+                    boton.textContent = "Eliminar";
+                    boton.addEventListener("click", () => eliminar(m.id));
+
+                    caja.append(autor, texto, boton);
+                    lista.append(caja);
+                }
+
+                aviso.textContent = mensajes.length === 0 ? "Todavia no hay mensajes. Escribe el primero." : "";
+            } catch (error) { 
+              aviso.textContent = "No se pudieron cargar los mensajes: " + error.message;
+            }
+        }
+        async function eliminar(id) {
+            
+            if (!confirm("¿Eliminar este mensaje?")) return;
+            await fetch("/api/mensajes/" + id, { method: "DELETE" });
+            cargar();
+        }
+        document.getElementById("formulario").addEventListener("submit", async (evento) => { 
+            evento.preventDefault();
+            const mensaje = {
+                usuario: document.getElementById("usuario").value,
+                texto: document.getElementById("texto").value
+
+            };
+            const respuesta = await fetch("/api/mensajes", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(mensaje)
+            });
+            if (!respuesta.ok) { 
+                aviso.textContent = "No se pudo enviar el mensaje (error " + respuesta.status + ").";
+                return;
+            }
+            document.getElementById("texto").value = "";
+            cargar();
+        });
+        document.getElementById("actualizar").addEventListener("click", cargar);
+        cargar();
+    </script>
+</body>
+</html>
