@@ -1,0 +1,6 @@
+@Piedra_papel_o_tijera_con_apuestas_HostAddress = http://localhost:5271
+
+GET {{Piedra_papel_o_tijera_con_apuestas_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

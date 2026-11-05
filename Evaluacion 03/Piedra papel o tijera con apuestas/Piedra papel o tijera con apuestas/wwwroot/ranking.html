@@ -1,0 +1,128 @@
+﻿
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking - Piedra, Papel o Tijera</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #141e30, #243b55);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .contenedor {
+            background: white;
+            width: 100%;
+            max-width: 650px;
+            padding: 30px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            color: #243b55;
+        }
+
+        .descripcion {
+            color: #64748b;
+            margin-bottom: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th {
+            background: #243b55;
+            color: white;
+            padding: 14px;
+        }
+
+        td {
+            padding: 13px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        tbody tr:hover {
+            background: #f1f5f9;
+        }
+
+        .primero {
+            background: #fef3c7;
+            font-weight: bold;
+        }
+
+        .mensaje {
+            margin-top: 20px;
+            color: #64748b;
+        }
+
+        .boton {
+            display: block;
+            margin-top: 25px;
+            padding: 14px;
+            background: #2563eb;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+            .boton:hover {
+                background: #1d4ed8;
+            }
+    </style>
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <h1>🏆 Ranking de jugadores</h1>
+
+        <p class="descripcion">
+            Los 10 mejores puntajes del juego
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Posición</th>
+                    <th>Jugador</th>
+                    <th>Fichas</th>
+                </tr>
+            </thead>
+
+            <tbody id="tablaRanking">
+            </tbody>
+        </table>
+
+        <p class="mensaje" id="mensaje">
+            Cargando ranking...
+        </p>
+
+        <a href="index.html" class="boton">
+            Volver al inicio
+        </a>
+
+    </div>
+
+    <script src="js/ranking.js"></script>
+
+</body>
+</html>

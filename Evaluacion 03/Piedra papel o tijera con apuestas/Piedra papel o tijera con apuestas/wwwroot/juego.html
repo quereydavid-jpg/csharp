@@ -1,0 +1,203 @@
+﻿
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jugar - Piedra, Papel o Tijera</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #141e30, #243b55);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #222;
+        }
+
+        .contenedor {
+            background: white;
+            width: 92%;
+            max-width: 650px;
+            padding: 30px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            color: #243b55;
+        }
+
+        .fichas {
+            background: #eff6ff;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .cantidad {
+            font-size: 38px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .opciones {
+            display: flex;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .opcion {
+            flex: 1;
+            padding: 18px 8px;
+            border: 2px solid #ddd;
+            background: #f8fafc;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+            .opcion:hover {
+                border-color: #2563eb;
+            }
+
+        .seleccionada {
+            border-color: #2563eb;
+            background: #dbeafe;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .boton {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+            .boton:hover {
+                background: #1d4ed8;
+            }
+
+            .boton:disabled {
+                background: #94a3b8;
+                cursor: not-allowed;
+            }
+
+        .resultado {
+            display: none;
+            margin-top: 25px;
+            padding: 20px;
+            background: #f1f5f9;
+            border-radius: 12px;
+        }
+
+            .resultado h2 {
+                color: #243b55;
+            }
+
+        .error {
+            color: #dc2626;
+            margin-top: 12px;
+        }
+
+        .volver {
+            display: inline-block;
+            margin-top: 20px;
+            color: #475569;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <h1>✊ Piedra, Papel o Tijera ✋</h1>
+
+        <h2 id="nombreJugador">Jugador</h2>
+
+        <div class="fichas">
+            <p>Tus fichas disponibles</p>
+            <div class="cantidad" id="fichas">100</div>
+        </div>
+
+        <h3>Elige tu jugada</h3>
+
+        <div class="opciones">
+            <button class="opcion" id="piedra" onclick="elegir('piedra')">
+                ✊ Piedra
+            </button>
+
+            <button class="opcion" id="papel" onclick="elegir('papel')">
+                ✋ Papel
+            </button>
+
+            <button class="opcion" id="tijera" onclick="elegir('tijera')">
+                ✌️ Tijera
+            </button>
+        </div>
+
+        <h3>¿Cuántas fichas quieres apostar?</h3>
+
+        <input type="number"
+               id="apuesta"
+               min="1"
+               max="100"
+               step="1"
+               value="10">
+
+        <button class="boton" id="botonJugar" onclick="jugarRonda()">
+            Jugar ronda
+        </button>
+
+        <p class="error" id="mensaje"></p>
+
+        <div class="resultado" id="resultado">
+            <h2 id="textoResultado"></h2>
+
+            <p>
+                Tu jugada:
+                <strong id="jugadaJugador"></strong>
+            </p>
+
+            <p>
+                Computadora:
+                <strong id="jugadaComputadora"></strong>
+            </p>
+
+            <p id="textoFichas"></p>
+        </div>
+
+        <a class="volver" href="index.html">
+            Volver al inicio
+        </a>
+
+    </div>
+
+    <script src="js/juego.js"></script>
+
+</body>
+</html>

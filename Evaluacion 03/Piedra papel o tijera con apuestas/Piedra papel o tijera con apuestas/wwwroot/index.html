@@ -1,0 +1,176 @@
+﻿
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra, Papel o Tijera</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #141e30, #243b55);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contenedor {
+            width: 90%;
+            max-width: 500px;
+            padding: 40px 30px;
+            background: #ffffff;
+            color: #222;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            color: #243b55;
+            margin-bottom: 10px;
+        }
+
+        .descripcion {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background: #1d4ed8;
+            }
+
+        .ranking {
+            background: #475569;
+        }
+
+            .ranking:hover {
+                background: #334155;
+            }
+
+        .reglas {
+            margin-top: 25px;
+            padding: 15px;
+            background: #f1f5f9;
+            border-radius: 10px;
+            color: #444;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        #mensaje {
+            color: #dc2626;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <h1>✊ Piedra, Papel o Tijera ✋</h1>
+
+        <p class="descripcion">
+            ¡Compite contra la computadora y consigue 500 fichas!
+        </p>
+
+        <input type="text"
+               id="nombreJugador"
+               maxlength="20"
+               placeholder="Escribe tu nombre">
+
+        <button onclick="iniciarPartida()">
+            Comenzar partida
+        </button>
+
+        <button class="ranking" onclick="location.href='ranking.html'">
+            Ver ranking
+        </button>
+
+        <p id="mensaje"></p>
+
+        <div class="reglas">
+            <strong>Reglas del juego:</strong>
+            <ul>
+                <li>Comienzas con 100 fichas.</li>
+                <li>Debes apostar entre 1 y todas tus fichas.</li>
+                <li>Si ganas, recibes la cantidad apostada.</li>
+                <li>Si pierdes, pierdes la cantidad apostada.</li>
+                <li>Si empatas, conservas tus fichas.</li>
+                <li>La partida termina al llegar a 0 o 500 fichas.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        async function iniciarPartida() {
+            const nombre = document.getElementById("nombreJugador").value.trim();
+            const mensaje = document.getElementById("mensaje");
+
+            if (nombre.length < 1 || nombre.length > 20) {
+                mensaje.textContent = "Escribe un nombre de entre 1 y 20 caracteres.";
+                return;
+            }
+
+            try {
+                const respuesta = await fetch("/api/juego/iniciar", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        nombre: nombre
+                    })
+                });
+
+                if (!respuesta.ok) {
+                    mensaje.textContent = await respuesta.text();
+                    return;
+                }
+
+                const datos = await respuesta.json();
+
+                sessionStorage.setItem("idPartida", datos.idPartida);
+                sessionStorage.setItem("nombreJugador", datos.jugador);
+
+                window.location.href = "juego.html";
+
+            } catch (error) {
+                mensaje.textContent = "No se pudo conectar con el servidor.";
+            }
+        }
+    </script>
+
+</body>
+</html>
