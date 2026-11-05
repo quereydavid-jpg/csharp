@@ -1,0 +1,179 @@
+﻿
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Página en construcción | fernando-querey</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Iconos de redes sociales -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .social {
+            transition: all 0.3s ease;
+        }
+
+            .social:hover {
+                transform: translateY(-6px);
+            }
+
+        .glow {
+            box-shadow: 0 0 80px rgba(168, 85, 247, 0.12);
+        }
+
+        @keyframes flotar {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .animacion {
+            animation: flotar 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-[#10051f] text-white">
+
+    <main class="relative flex min-h-screen items-center justify-center overflow-hidden px-5 py-12">
+
+        <!-- Fondo decorativo -->
+        <div class="absolute -left-32 -top-32 h-96 w-96 rounded-full bg-purple-700/20 blur-3xl"></div>
+        <div class="absolute -bottom-32 -right-32 h-96 w-96 rounded-full bg-fuchsia-600/15 blur-3xl"></div>
+
+        <!-- Contenido principal -->
+        <section class="glow relative z-10 w-full max-w-3xl rounded-3xl border border-purple-500/20 bg-[#190d2b]/90 px-6 py-12 text-center sm:px-12 sm:py-14">
+
+            <!-- Marca -->
+            <div class="mb-10">
+                <div class="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-purple-600 shadow-lg shadow-purple-600/30">
+                    <i class="fa-solid fa-code text-3xl"></i>
+                </div>
+
+                <p class="text-xl font-extrabold tracking-widest">
+                    FERNANDO<span class="text-purple-400">-QUEREY</span>
+                </p>
+
+                <p class="mt-2 text-xs uppercase tracking-[0.3em] text-purple-300/70">
+                    Desarrollo web
+                </p>
+            </div>
+
+            <!-- Icono de construcción -->
+            <div class="animacion mx-auto mb-8 flex h-32 w-32 items-center justify-center rounded-full border border-purple-400/20 bg-purple-500/10 sm:h-40 sm:w-40">
+                <i class="fa-solid fa-person-digging text-6xl text-purple-300 sm:text-7xl"></i>
+            </div>
+
+            <!-- Mensaje principal -->
+            <p class="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-purple-400">
+                Estamos trabajando
+            </p>
+
+            <h1 class="text-4xl font-black leading-tight sm:text-6xl">
+                Página en
+                <span class="mt-2 block bg-gradient-to-r from-purple-400 to-fuchsia-400 bg-clip-text text-transparent">
+                    construcción
+                </span>
+            </h1>
+
+            <p class="mx-auto mt-6 max-w-xl text-base leading-7 text-purple-100/60 sm:text-lg">
+                Estamos preparando algo increíble para ti.
+                Muy pronto nuestra página web estará disponible.
+                ¡Gracias por tu paciencia!
+            </p>
+
+            <!-- Línea decorativa -->
+            <div class="mx-auto my-8 h-1 w-24 rounded-full bg-gradient-to-r from-purple-500 to-fuchsia-500"></div>
+
+            <!-- Crédito del desarrollador -->
+            <div class="flex flex-wrap items-center justify-center gap-3 text-base sm:text-lg">
+                <i class="fa-solid fa-laptop-code text-2xl text-purple-400"></i>
+                <span class="text-purple-100/80">Desarrollador por</span>
+                <span class="font-bold text-purple-400">fernando-querey</span>
+            </div>
+
+            <!-- Redes sociales -->
+            <div class="mt-10">
+                <p class="mb-5 text-sm text-purple-100/60">
+                    Sígueme en mis redes sociales
+                </p>
+
+                <div class="flex flex-wrap justify-center gap-4">
+
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/595XXXXXXXXX"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="WhatsApp"
+                       class="social flex h-14 w-14 items-center justify-center rounded-2xl border border-green-400/20 bg-green-500/10 text-2xl text-green-400 hover:bg-green-500 hover:text-white">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/TU_USUARIO/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Instagram"
+                       class="social flex h-14 w-14 items-center justify-center rounded-2xl border border-pink-400/20 bg-pink-500/10 text-2xl text-pink-400 hover:bg-pink-500 hover:text-white">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <!-- Facebook -->
+                    <a href="https://www.facebook.com/TU_PAGINA"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Facebook"
+                       class="social flex h-14 w-14 items-center justify-center rounded-2xl border border-blue-400/20 bg-blue-500/10 text-2xl text-blue-400 hover:bg-blue-600 hover:text-white">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/TU_USUARIO/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="LinkedIn"
+                       class="social flex h-14 w-14 items-center justify-center rounded-2xl border border-sky-400/20 bg-sky-500/10 text-2xl text-sky-400 hover:bg-sky-600 hover:text-white">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- Pie de página -->
+            <footer class="mt-12 border-t border-purple-500/15 pt-6">
+                <p class="text-sm text-purple-100/40">
+                    © <span id="year"></span> fernando-querey.
+                    Todos los derechos reservados.
+                </p>
+
+                <p class="mt-2 text-xs text-purple-300/40">
+                    Diseñado con <i class="fa-solid fa-heart text-fuchsia-400"></i>
+                    y código.
+                </p>
+            </footer>
+
+        </section>
+    </main>
+
+    <!-- Año automático -->
+    <script>
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
