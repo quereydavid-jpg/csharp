@@ -1,0 +1,416 @@
+﻿
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#10243a">
+    <title>24/7 Express | Catálogo</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <style>
+        :root {
+            --azul: #10243a;
+            --azul-claro: #1c3855;
+            --verde: #20b486;
+            --fondo: #f3f6f9;
+            --texto: #263445;
+        }
+
+        body {
+            background-color: var(--fondo);
+            color: var(--texto);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Barra de navegación */
+        .navbar-custom {
+            background-color: var(--azul);
+        }
+
+        .brand-icon {
+            display: inline-flex;
+            width: 42px;
+            height: 42px;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--verde);
+            border-radius: 12px;
+            color: var(--azul);
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        /* Encabezado */
+        .hero {
+            background: linear-gradient(135deg, var(--azul), var(--azul-claro));
+            color: white;
+            padding: 55px 0;
+            border-radius: 0 0 28px 28px;
+        }
+
+        .badge-open {
+            background-color: rgba(32, 180, 134, 0.15);
+            color: #72e6bd;
+            border: 1px solid rgba(114, 230, 189, 0.4);
+            padding: 8px 13px;
+            border-radius: 30px;
+        }
+
+        .text-green {
+            color: var(--verde);
+        }
+
+        /* Productos */
+        .product-card {
+            border: none;
+            border-radius: 18px;
+            box-shadow: 0 5px 20px rgba(16, 36, 58, 0.06);
+            transition: transform 0.2s, box-shadow 0.2s;
+            height: 100%;
+        }
+
+            .product-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 10px 28px rgba(16, 36, 58, 0.12);
+            }
+
+        .product-icon {
+            height: 125px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #eaf3f5;
+            border-radius: 14px;
+            font-size: 3.5rem;
+        }
+
+        .price {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--azul);
+        }
+
+        .btn-green {
+            background-color: var(--verde);
+            color: #082a23;
+            font-weight: 600;
+            border: none;
+        }
+
+            .btn-green:hover {
+                background-color: #15966e;
+                color: white;
+            }
+
+        /* Oferta */
+        .offer-card {
+            background: linear-gradient(120deg, #e2f7ef, #f5fcf9);
+            border: 1px solid #bcebd9;
+            border-radius: 18px;
+        }
+
+        .offer-label {
+            background-color: var(--verde);
+            color: #082a23;
+            border-radius: 6px;
+            padding: 5px 10px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* Pie de página */
+        .footer {
+            background-color: var(--azul);
+            color: #d3dce5;
+        }
+
+            .footer small {
+                color: #aab8c8;
+            }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navegación -->
+    <nav class="navbar navbar-dark navbar-custom py-3">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2 fw-bold"
+               href="#">
+                <span class="brand-icon">24</span>
+                <span>EXPRESS<span class="text-green">.</span></span>
+            </a>
+
+            <span class="badge-open">
+                ● ABIERTO 24 HORAS
+            </span>
+        </div>
+    </nav>
+
+    <!-- Encabezado -->
+    <header class="hero">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-8">
+                    <p class="text-green fw-bold text-uppercase mb-2">
+                        Tu kiosco de confianza
+                    </p>
+
+                    <h1 class="display-5 fw-bold mb-3">
+                        Siempre cerca de vos.
+                    </h1>
+
+                    <p class="lead mb-0">
+                        Tus productos favoritos, buenos precios y atención
+                        a cualquier hora del día.
+                    </p>
+                </div>
+
+                <div class="col-lg-4 text-lg-end">
+                    <div class="d-inline-block text-start p-3 rounded-4"
+                         style="background: rgba(255,255,255,0.08);">
+                        <div class="fs-2 fw-bold text-green">24/7</div>
+                        <div>Abierto todos los días</div>
+                        <small class="text-white-50">
+                            Siempre disponibles para vos
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container py-5">
+
+        <!-- Título del catálogo -->
+        <section class="mb-4">
+            <p class="text-uppercase text-green fw-bold small mb-1">
+                Nuestros productos
+            </p>
+            <h2 class="fw-bold">Catálogo del kiosco</h2>
+            <p class="text-secondary">
+                Productos seleccionados para acompañarte en cualquier momento.
+            </p>
+        </section>
+
+        <!-- Tarjetas de productos -->
+        <section class="row g-4">
+
+            <!-- Gaseosa -->
+            <div class="col-12 col-sm-6 col-lg-4">
+                <article class="card product-card p-3">
+                    <div class="product-icon mb-3" aria-hidden="true">
+                        🥤
+                    </div>
+
+                    <div class="card-body p-1">
+                        <span class="badge text-bg-light mb-2">
+                            Bebidas
+                        </span>
+
+                        <h3 class="h5 fw-bold">Gaseosa 500 ml</h3>
+
+                        <p class="text-secondary small">
+                            Una bebida refrescante para cualquier ocasión.
+                        </p>
+
+                        <div class="d-flex justify-content-between
+                                    align-items-center mt-3">
+                            <span class="price">6.000 Gs.</span>
+                            <button class="btn btn-green"
+                                    type="button"
+                                    onclick="agregarProducto('Gaseosa 500 ml', 6000)">
+                                Agregar +
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Alfajor -->
+            <div class="col-12 col-sm-6 col-lg-4">
+                <article class="card product-card p-3">
+                    <div class="product-icon mb-3" aria-hidden="true">
+                        🍫
+                    </div>
+
+                    <div class="card-body p-1">
+                        <span class="badge text-bg-light mb-2">
+                            Golosinas
+                        </span>
+
+                        <h3 class="h5 fw-bold">Alfajor</h3>
+
+                        <p class="text-secondary small">
+                            Un dulce ideal para disfrutar en cualquier momento.
+                        </p>
+
+                        <div class="d-flex justify-content-between
+                                    align-items-center mt-3">
+                            <span class="price">3.500 Gs.</span>
+                            <button class="btn btn-green"
+                                    type="button"
+                                    onclick="agregarProducto('Alfajor', 3500)">
+                                Agregar +
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+        </section>
+
+        <!-- Oferta del día -->
+        <section class="offer-card p-4 p-md-5 mt-5">
+            <div class="row align-items-center g-3">
+                <div class="col-md-8">
+                    <span class="offer-label">OFERTA DEL DÍA</span>
+
+                    <h2 class="h3 fw-bold mt-3">
+                        ¡Un gusto a mejor precio!
+                    </h2>
+
+                    <p class="text-secondary mb-md-0">
+                        Llevate tu alfajor favorito por solo 3.000 Gs.
+                        Oferta válida hasta las 18:00.
+                    </p>
+                </div>
+
+                <div class="col-md-4 text-md-end">
+                    <div class="text-secondary text-decoration-line-through">
+                        3.500 Gs.
+                    </div>
+
+                    <div class="display-6 fw-bold">
+                        3.000 <span class="fs-5">Gs.</span>
+                    </div>
+
+                    <button class="btn btn-dark mt-2"
+                            type="button"
+                            onclick="agregarProducto('Alfajor en oferta', 3000)">
+                        Aprovechar oferta
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resumen de compra -->
+        <section class="card border-0 shadow-sm rounded-4 p-4 mt-5">
+            <div class="d-flex flex-wrap justify-content-between
+                        align-items-center gap-3">
+                <div>
+                    <h2 class="h5 fw-bold mb-1">Tu compra</h2>
+                    <p class="text-secondary mb-0" id="cantidad">
+                        Todavía no agregaste productos.
+                    </p>
+                </div>
+
+                <div class="text-md-end">
+                    <div class="text-secondary small">Total</div>
+                    <div class="h4 fw-bold mb-0" id="total">0 Gs.</div>
+                </div>
+            </div>
+
+            <ul class="list-group list-group-flush mt-3" id="listaCompra">
+            </ul>
+
+            <button class="btn btn-outline-secondary mt-3 align-self-start"
+                    type="button"
+                    onclick="vaciarCompra()">
+                Vaciar compra
+            </button>
+        </section>
+
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="footer py-4 mt-4">
+        <div class="container text-center">
+            <div class="fw-bold fs-5 mb-2">
+                24/7 EXPRESS<span class="text-green">.</span>
+            </div>
+
+            <p class="mb-2">
+                Tu kiosco de confianza, abierto cuando nos necesitás.
+            </p>
+
+            <small>
+                © 2026 24/7 Express. Todos los derechos reservados.
+            </small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+                const compra = [];
+
+                function formatoGs(valor) {
+                    return valor.toLocaleString("es-PY") + " Gs.";
+                }
+
+                function agregarProducto(nombre, precio) {
+                    compra.push({ nombre, precio });
+                    actualizarCompra();
+                }
+
+                function actualizarCompra() {
+                    const lista = document.getElementById("listaCompra");
+                    const total = document.getElementById("total");
+                    const cantidad = document.getElementById("cantidad");
+
+                    lista.innerHTML = "";
+
+                    compra.forEach((producto, indice) => {
+                        const elemento = document.createElement("li");
+
+                        elemento.className =
+                            "list-group-item d-flex justify-content-between align-items-center";
+
+                        const descripcion = document.createElement("span");
+                        descripcion.textContent =
+                            producto.nombre + " — " + formatoGs(producto.precio);
+
+                        const eliminar = document.createElement("button");
+                        eliminar.className = "btn btn-sm btn-outline-danger";
+                        eliminar.textContent = "Quitar";
+                        eliminar.type = "button";
+                        eliminar.addEventListener("click", () => {
+                            compra.splice(indice, 1);
+                            actualizarCompra();
+                        });
+
+                        elemento.append(descripcion, eliminar);
+                        lista.appendChild(elemento);
+                    });
+
+                    const suma = compra.reduce(
+                        (acumulado, producto) => acumulado + producto.precio,
+                        0
+                    );
+
+                    total.textContent = formatoGs(suma);
+
+                    cantidad.textContent = compra.length === 0
+                        ? "Todavía no agregaste productos."
+                        : compra.length + (
+                            compra.length === 1
+                                ? " producto agregado."
+                                : " productos agregados."
+                        );
+                }
+
+                function vaciarCompra() {
+                    compra.length = 0;
+                    actualizarCompra();
+                }
+    </script>
+
+</body>
+</html>

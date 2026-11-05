@@ -1,0 +1,343 @@
+﻿
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#10243a">
+
+    <title>24/7 Express | Catálogo</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="min-h-screen bg-slate-50 text-slate-800">
+
+    <!-- Navegación -->
+    <nav class="bg-[#10243a] text-white shadow-lg">
+        <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
+
+            <a href="#" class="flex items-center gap-3">
+                <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-400 text-xl font-black text-slate-900">
+                    24
+                </span>
+
+                <span class="text-xl font-extrabold tracking-wide">
+                    EXPRESS<span class="text-emerald-400">.</span>
+                </span>
+            </a>
+
+            <div class="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-2 text-sm font-semibold text-emerald-300">
+                <span class="mr-1">●</span> ABIERTO 24 HORAS
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Encabezado principal -->
+    <header class="overflow-hidden rounded-b-[2rem] bg-gradient-to-br from-[#10243a] to-[#1c4560] text-white">
+        <div class="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-2 md:py-20">
+
+            <div>
+                <p class="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-emerald-400">
+                    Tu kiosco de confianza
+                </p>
+
+                <h1 class="text-4xl font-black leading-tight sm:text-5xl">
+                    Siempre cerca de vos.
+                </h1>
+
+                <p class="mt-5 max-w-lg text-lg leading-8 text-slate-300">
+                    Tus productos favoritos, buenos precios y atención
+                    a cualquier hora del día.
+                </p>
+
+                <a href="#catalogo"
+                   class="mt-8 inline-flex items-center rounded-xl bg-emerald-400 px-6 py-3 font-bold text-slate-950 shadow-lg transition hover:bg-emerald-300">
+                    Explorar catálogo
+                    <span class="ml-2">→</span>
+                </a>
+            </div>
+
+            <div class="flex justify-center md:justify-end">
+                <div class="w-full max-w-xs rounded-3xl border border-white/10 bg-white/5 p-8 text-center shadow-2xl backdrop-blur">
+                    <div class="text-7xl font-black tracking-tight text-emerald-400">
+                        24/7
+                    </div>
+
+                    <p class="mt-3 text-xl font-bold">
+                        Siempre disponibles
+                    </p>
+
+                    <p class="mt-2 text-sm text-slate-300">
+                        Todos los días, a toda hora.
+                    </p>
+
+                    <div class="mt-6 border-t border-white/10 pt-5 text-sm text-slate-300">
+                        Calidad · Atención · Confianza
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-5 py-14">
+
+        <!-- Catálogo -->
+        <section id="catalogo">
+
+            <div class="mb-8">
+                <p class="text-sm font-bold uppercase tracking-widest text-emerald-600">
+                    Nuestros productos
+                </p>
+
+                <h2 class="mt-2 text-3xl font-extrabold tracking-tight text-slate-900">
+                    Catálogo del kiosco
+                </h2>
+
+                <p class="mt-3 text-slate-500">
+                    Encontrá lo que necesitás, cuando lo necesitás.
+                </p>
+            </div>
+
+            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+                <!-- Producto 1 -->
+                <article class="group rounded-2xl border border-slate-100 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+
+                    <div class="flex h-40 items-center justify-center rounded-xl bg-sky-50 text-7xl transition group-hover:bg-sky-100">
+                        🥤
+                    </div>
+
+                    <div class="mt-5">
+                        <span class="rounded-full bg-sky-100 px-3 py-1 text-xs font-bold text-sky-700">
+                            BEBIDAS
+                        </span>
+
+                        <h3 class="mt-4 text-xl font-bold text-slate-900">
+                            Gaseosa 500 ml
+                        </h3>
+
+                        <p class="mt-2 text-sm leading-6 text-slate-500">
+                            Una bebida refrescante para disfrutar en cualquier momento.
+                        </p>
+
+                        <div class="mt-6 flex items-center justify-between gap-3">
+                            <p class="text-xl font-extrabold text-[#10243a]">
+                                6.000 <span class="text-sm">Gs.</span>
+                            </p>
+
+                            <button type="button"
+                                    onclick="agregarProducto('Gaseosa 500 ml', 6000)"
+                                    class="rounded-xl bg-[#10243a] px-4 py-3 text-sm font-bold text-white transition hover:bg-emerald-600">
+                                + Agregar
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 2 -->
+                <article class="group rounded-2xl border border-slate-100 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+
+                    <div class="flex h-40 items-center justify-center rounded-xl bg-amber-50 text-7xl transition group-hover:bg-amber-100">
+                        🍫
+                    </div>
+
+                    <div class="mt-5">
+                        <span class="rounded-full bg-amber-100 px-3 py-1 text-xs font-bold text-amber-700">
+                            GOLOSINAS
+                        </span>
+
+                        <h3 class="mt-4 text-xl font-bold text-slate-900">
+                            Alfajor
+                        </h3>
+
+                        <p class="mt-2 text-sm leading-6 text-slate-500">
+                            Un dulce ideal para acompañar tu descanso.
+                        </p>
+
+                        <div class="mt-6 flex items-center justify-between gap-3">
+                            <p class="text-xl font-extrabold text-[#10243a]">
+                                3.500 <span class="text-sm">Gs.</span>
+                            </p>
+
+                            <button type="button"
+                                    onclick="agregarProducto('Alfajor', 3500)"
+                                    class="rounded-xl bg-[#10243a] px-4 py-3 text-sm font-bold text-white transition hover:bg-emerald-600">
+                                + Agregar
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Oferta -->
+                <article class="relative overflow-hidden rounded-2xl border border-emerald-200 bg-gradient-to-br from-emerald-50 to-white p-6 shadow-sm">
+
+                    <span class="inline-block rounded-lg bg-emerald-500 px-3 py-2 text-xs font-extrabold tracking-wider text-white">
+                        OFERTA DEL DÍA
+                    </span>
+
+                    <div class="mt-5 text-6xl">🎉</div>
+
+                    <h3 class="mt-5 text-2xl font-extrabold text-slate-900">
+                        Un gusto a mejor precio
+                    </h3>
+
+                    <p class="mt-3 text-sm leading-6 text-slate-600">
+                        Llevate tu alfajor favorito con un descuento especial.
+                    </p>
+
+                    <div class="mt-5">
+                        <p class="text-sm text-slate-400 line-through">
+                            Precio anterior: 3.500 Gs.
+                        </p>
+
+                        <p class="mt-1 text-3xl font-black text-emerald-700">
+                            3.000 <span class="text-base">Gs.</span>
+                        </p>
+
+                        <p class="mt-2 text-sm font-semibold text-emerald-700">
+                            Válido hasta las 18:00
+                        </p>
+                    </div>
+
+                    <button type="button"
+                            onclick="agregarProducto('Alfajor en oferta', 3000)"
+                            class="mt-6 w-full rounded-xl bg-emerald-500 px-5 py-3 font-bold text-slate-950 transition hover:bg-emerald-400">
+                        Aprovechar oferta
+                    </button>
+
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Resumen de compra -->
+        <section class="mt-14 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+
+            <div class="flex flex-wrap items-center justify-between gap-5">
+                <div>
+                    <p class="text-sm font-bold uppercase tracking-wider text-emerald-600">
+                        Tu selección
+                    </p>
+
+                    <h2 class="mt-1 text-2xl font-extrabold text-slate-900">
+                        Resumen de compra
+                    </h2>
+
+                    <p id="cantidad" class="mt-2 text-sm text-slate-500">
+                        Todavía no agregaste productos.
+                    </p>
+                </div>
+
+                <div class="rounded-xl bg-slate-50 px-5 py-4">
+                    <p class="text-sm text-slate-500">Total a pagar</p>
+                    <p id="total" class="mt-1 text-2xl font-black text-[#10243a]">
+                        0 Gs.
+                    </p>
+                </div>
+            </div>
+
+            <ul id="listaCompra" class="mt-6 divide-y divide-slate-100"></ul>
+
+            <button type="button"
+                    onclick="vaciarCompra()"
+                    class="mt-5 rounded-xl border border-slate-300 px-4 py-2.5 text-sm font-semibold text-slate-600 transition hover:border-red-300 hover:bg-red-50 hover:text-red-600">
+                Vaciar compra
+            </button>
+
+        </section>
+
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="mt-8 bg-[#10243a] text-white">
+        <div class="mx-auto max-w-6xl px-5 py-9 text-center">
+
+            <p class="text-xl font-extrabold tracking-wide">
+                24/7 EXPRESS<span class="text-emerald-400">.</span>
+            </p>
+
+            <p class="mt-3 text-sm text-slate-300">
+                Tu kiosco de confianza, siempre disponible.
+            </p>
+
+            <div class="mt-6 border-t border-white/10 pt-5 text-xs text-slate-400">
+                © 2026 24/7 Express. Todos los derechos reservados.
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Funcionalidad de la compra -->
+    <script>
+                const compra = [];
+
+                function formatoGs(valor) {
+                    return valor.toLocaleString("es-PY") + " Gs.";
+                }
+
+                function agregarProducto(nombre, precio) {
+                    compra.push({ nombre, precio });
+                    actualizarCompra();
+                }
+
+                function actualizarCompra() {
+                    const lista = document.getElementById("listaCompra");
+                    const total = document.getElementById("total");
+                    const cantidad = document.getElementById("cantidad");
+
+                    lista.innerHTML = "";
+
+                    compra.forEach((producto, indice) => {
+                        const elemento = document.createElement("li");
+
+                        elemento.className =
+                            "flex flex-wrap items-center justify-between gap-3 py-4";
+
+                        const descripcion = document.createElement("span");
+                        descripcion.className = "font-medium text-slate-700";
+                        descripcion.textContent =
+                            producto.nombre + " — " + formatoGs(producto.precio);
+
+                        const eliminar = document.createElement("button");
+                        eliminar.type = "button";
+                        eliminar.className =
+                            "rounded-lg border border-red-200 px-3 py-2 text-sm font-semibold text-red-600 hover:bg-red-50";
+                        eliminar.textContent = "Quitar";
+
+                        eliminar.addEventListener("click", () => {
+                            compra.splice(indice, 1);
+                            actualizarCompra();
+                        });
+
+                        elemento.append(descripcion, eliminar);
+                        lista.appendChild(elemento);
+                    });
+
+                    const suma = compra.reduce(
+                        (acumulado, producto) => acumulado + producto.precio,
+                        0
+                    );
+
+                    total.textContent = formatoGs(suma);
+
+                    cantidad.textContent = compra.length === 0
+                        ? "Todavía no agregaste productos."
+                        : compra.length + (
+                            compra.length === 1
+                                ? " producto agregado."
+                                : " productos agregados."
+                        );
+                }
+
+                function vaciarCompra() {
+                    compra.length = 0;
+                    actualizarCompra();
+                }
+    </script>
+
+</body>
+</html>
